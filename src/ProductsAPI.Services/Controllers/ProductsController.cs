@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProductsAPI.Application.Interfaces;
 using ProductsAPI.Application.Models.Commands;
 using ProductsAPI.Application.Models.Queries;
 
@@ -8,25 +9,34 @@ namespace ProductsAPI.Services.Controllers;
 [ApiController]
 public class ProductsController : ControllerBase
 {
+    private readonly IProductsAppService _productsAppService;
+
+    public ProductsController(IProductsAppService productsAppService) 
+        => _productsAppService = productsAppService;
+
     [HttpPost]
     [ProducesResponseType(typeof(ProductsQuery), 201)]
-    public IActionResult Post([FromBody] ProductsCreateCommand command)
+    public async Task<IActionResult> Post([FromBody] ProductsCreateCommand command)
     {
-        return Ok();
+        var response = await _productsAppService.Create(command);
+        return StatusCode(201, response);
     }
 
     [HttpPut]
     [ProducesResponseType(typeof(ProductsQuery), 200)]
-    public IActionResult Put([FromBody] ProductsUpdateCommand command)
+    public async Task<IActionResult> Put([FromBody]ProductsUpdateCommand command)
     {
-        return Ok();
+        var response = await _productsAppService.Update(command);
+        return StatusCode(200, response);
     }
 
     [HttpDelete("{id}")]
     [ProducesResponseType(typeof(ProductsQuery), 200)]
-    public IActionResult Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid? id)
     {
-        return Ok();
+        var command = new ProductsDeleteCommand { Id = id };
+        var response = await _productsAppService.Delete(command);
+        return StatusCode(200, response);
     }
 
     [HttpGet]

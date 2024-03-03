@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
+using ProductsAPI.Application.Models.Queries;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProductsAPI.Application.Models.Commands;
 
 /// <summary>
 /// Modelo de dados para o serviço de criação de produto
 /// </summary>
-public class ProductsCreateCommand
+public class ProductsCreateCommand : IRequest<ProductsQuery>
 {
     [Required(ErrorMessage = "Informe o nome do produto.")]
     [MinLength(8, ErrorMessage = "Informe no mínimo {1} caracteres.")]
