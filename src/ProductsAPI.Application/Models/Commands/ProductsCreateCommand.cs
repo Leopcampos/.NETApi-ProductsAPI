@@ -7,7 +7,7 @@ namespace ProductsAPI.Application.Models.Commands;
 /// <summary>
 /// Modelo de dados para o serviço de criação de produto
 /// </summary>
-public class ProductsCreateCommand : IRequest<ProductsQuery>
+public class ProductsCreateCommand : IRequest<ProductsDTO>
 {
     [Required(ErrorMessage = "Informe o nome do produto.")]
     [MinLength(8, ErrorMessage = "Informe no mínimo {1} caracteres.")]

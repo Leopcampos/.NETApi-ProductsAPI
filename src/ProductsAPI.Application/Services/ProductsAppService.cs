@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using ProductsAPI.Application.Interfaces;
+using ProductsAPI.Application.Interfaces.Services;
 using ProductsAPI.Application.Models.Commands;
 using ProductsAPI.Application.Models.Queries;
 
@@ -12,17 +12,17 @@ public class ProductsAppService : IProductsAppService
     public ProductsAppService(IMediator? mediator) 
         => _mediator = mediator;
 
-    public async Task<ProductsQuery> Create(ProductsCreateCommand command)
+    public async Task<ProductsDTO> Create(ProductsCreateCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<ProductsQuery> Update(ProductsUpdateCommand command)
+    public async Task<ProductsDTO> Update(ProductsUpdateCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<ProductsQuery> Delete(ProductsDeleteCommand command)
+    public async Task<ProductsDTO> Delete(ProductsDeleteCommand command)
     {
         return await _mediator.Send(command);
     }

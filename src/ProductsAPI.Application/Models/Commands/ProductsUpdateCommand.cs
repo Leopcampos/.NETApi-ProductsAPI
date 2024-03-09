@@ -7,7 +7,7 @@ namespace ProductsAPI.Application.Models.Commands;
 /// <summary>
 /// Modelo de dados para o serviço de edição de produto
 /// </summary>
-public class ProductsUpdateCommand : IRequest<ProductsQuery>
+public class ProductsUpdateCommand : IRequest<ProductsDTO>
 {
     [Required(ErrorMessage = "Informe o id do produto.")]
     public Guid? Id { get; set; }
