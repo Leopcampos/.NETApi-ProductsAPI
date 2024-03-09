@@ -1,6 +1,7 @@
 using MediatR;
 using ProductsAPI.Application.Interfaces.Services;
 using ProductsAPI.Application.Services;
+using ProductsAPI.Infra.IoC.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,10 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSqlServerConfig(builder.Configuration);
 
 #region Injeções de dependência
 
@@ -30,7 +30,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

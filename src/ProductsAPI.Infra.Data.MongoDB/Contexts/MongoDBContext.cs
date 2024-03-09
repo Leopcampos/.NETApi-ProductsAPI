@@ -26,6 +26,7 @@ public class MongoDBContext
             };
 
         _mongoDatabase = new MongoClient(client).GetDatabase(_mongoDBSettings.Name);
+    }
 
         #endregion
 
