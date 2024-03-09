@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProductsAPI.Application.Interfaces;
+using ProductsAPI.Application.Interfaces.Services;
 using ProductsAPI.Application.Models.Commands;
 using ProductsAPI.Application.Models.Queries;
 
@@ -15,7 +15,7 @@ public class ProductsController : ControllerBase
         => _productsAppService = productsAppService;
 
     [HttpPost]
-    [ProducesResponseType(typeof(ProductsQuery), 201)]
+    [ProducesResponseType(typeof(ProductsDTO), 201)]
     public async Task<IActionResult> Post([FromBody] ProductsCreateCommand command)
     {
         var response = await _productsAppService.Create(command);
@@ -23,7 +23,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPut]
-    [ProducesResponseType(typeof(ProductsQuery), 200)]
+    [ProducesResponseType(typeof(ProductsDTO), 200)]
     public async Task<IActionResult> Put([FromBody]ProductsUpdateCommand command)
     {
         var response = await _productsAppService.Update(command);
@@ -31,7 +31,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [ProducesResponseType(typeof(ProductsQuery), 200)]
+    [ProducesResponseType(typeof(ProductsDTO), 200)]
     public async Task<IActionResult> Delete(Guid? id)
     {
         var command = new ProductsDeleteCommand { Id = id };
@@ -40,14 +40,14 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(List<ProductsQuery>), 200)]
+    [ProducesResponseType(typeof(List<ProductsDTO>), 200)]
     public IActionResult Get()
     {
         return Ok();
     }
 
     [HttpGet("{id}")]
-    [ProducesResponseType(typeof(ProductsQuery), 200)]
+    [ProducesResponseType(typeof(ProductsDTO), 200)]
     public IActionResult Get(Guid? id)
     {
         return Ok();

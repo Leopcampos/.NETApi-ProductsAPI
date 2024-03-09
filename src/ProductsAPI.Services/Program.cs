@@ -1,5 +1,5 @@
 using MediatR;
-using ProductsAPI.Application.Interfaces;
+using ProductsAPI.Application.Interfaces.Services;
 using ProductsAPI.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);

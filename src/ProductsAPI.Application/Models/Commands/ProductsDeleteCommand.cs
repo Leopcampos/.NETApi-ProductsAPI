@@ -6,7 +6,7 @@ namespace ProductsAPI.Application.Models.Commands;
 /// <summary>
 /// Modelo de dados para o serviço de exclusão de produto
 /// </summary>
-public class ProductsDeleteCommand : IRequest<ProductsQuery>
+public class ProductsDeleteCommand : IRequest<ProductsDTO>
 {
     public Guid? Id { get; set; }
 }

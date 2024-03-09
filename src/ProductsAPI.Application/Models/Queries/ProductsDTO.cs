@@ -3,7 +3,7 @@
 /// <summary>
 /// Modelo de dados para o serviço de consulta de produtos
 /// </summary>
-public class ProductsQuery
+public class ProductsDTO
 {
     public Guid? Id { get; set; }
     public string? Name { get; set; }
