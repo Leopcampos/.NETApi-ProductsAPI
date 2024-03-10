@@ -1,15 +1,15 @@
 # Products API
 
-• Tecnologias:
-o Asp.Net API, Swagger
-o EntityFramework
-o MongoDB Driver
-o AutoMapper
-o MediatR
-o JWT – JSON WEB TOKENS
-o XUnit, FluentAssertions
+• Tecnologias: <br>
+o Asp.Net API, Swagger<br>
+o EntityFramework<br>
+o MongoDB Driver<br>
+o AutoMapper<br>
+o MediatR<br>
+o JWT – JSON WEB TOKENS<br>
+o XUnit, FluentAssertions<br>
 
 • Padrões:
-o DDD – Domain Driven Design
-o CQRS – Command Query Responsibility Segregation
+o DDD – Domain Driven Design<br>
+o CQRS – Command Query Responsibility Segregation<br>
 o Testes de integração
