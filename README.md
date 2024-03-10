@@ -1,8 +1,8 @@
 # Products API
 
 • Tecnologias: <br>
-o Asp.Net API, Swagger<br>
-o EntityFramework<br>
+- Asp.Net API, Swagger<br>
+- EntityFramework<br>
 o MongoDB Driver<br>
 o AutoMapper<br>
 o MediatR<br>
