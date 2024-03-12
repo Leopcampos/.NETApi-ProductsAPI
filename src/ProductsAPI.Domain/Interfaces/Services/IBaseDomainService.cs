@@ -1,13 +1,11 @@
-﻿namespace ProductsAPI.Domain.Interfaces.Repositories;
+﻿namespace ProductsAPI.Domain.Interfaces.Services;
 
-public interface IBaseRepository<TEntity, TKey> : IDisposable
+public interface IBaseDomainService<TEntity, TKey> : IDisposable 
     where TEntity : class
 {
     void Add(TEntity entity);
     void Update(TEntity entity);
     void Delete(TEntity entity);
-    void SaveChanges();
-
     List<TEntity> GetAll();
     TEntity GetById(TKey id);
 }

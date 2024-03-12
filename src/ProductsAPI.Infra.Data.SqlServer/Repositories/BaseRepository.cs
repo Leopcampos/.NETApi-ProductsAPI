@@ -27,6 +27,11 @@ public abstract class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, T
         _dataContext?.Set<TEntity>().Remove(entity);
     }
 
+    public virtual void SaveChanges()
+    {
+        _dataContext?.SaveChanges();
+    }
+
     public virtual List<TEntity> GetAll()
     {
         return _dataContext?.Set<TEntity>().ToList();
